@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: "Noto Sans";
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #ecf0f1;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #57a6c7;
+    color: #fff;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar.open {
+    left: -250px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 20px;
+    transition: all .3s;
+}
+
+.sidebar ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.sidebar ul li a:hover {
+    background-color: rgb(65, 108, 154);
+}
+
+.menu-toggle {
+    background-color: #57a6c7;
+    color: #ecf0f1;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: none;
+    position: fixed;
+    display: block;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex: 1;
+    background-color: #ecf0f1;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-left: 250px;
+    transition: margin-left 0.3s ease;
+}
+
+.main-content a{
+    color: #57a6c7;
+    text-decoration: none;
+}
+
+.main-content.collapsed {
+    margin-left: 0;
+}
+
+.main-content h1 {
+    color: #2c3e50;
+}
+
+.main-content .card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        left: -250px;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .card{
+        width: 90% !important;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .main-content.collapsed {
+        margin-left: 0;
+    }
+
+    .second-content{
+        margin-left: 0 !important;
+    }
+}
